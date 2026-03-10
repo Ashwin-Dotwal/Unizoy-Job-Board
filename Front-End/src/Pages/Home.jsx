@@ -6,7 +6,11 @@ function Home() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/jobs").then((res) => setJobs(res.data));
+    // Use your Render backend URL here
+    axios
+      .get("https://unizoy-backend.onrender.com/jobs")
+      .then((res) => setJobs(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
